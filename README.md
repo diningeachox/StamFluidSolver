@@ -15,5 +15,5 @@ This implementation was written in C++ and rendered using OpenGL.
 
 ## Video
 
-![3-colour mix](https://user-images.githubusercontent.com/24876548/179864629-a01feb21-14e5-4fca-8a7d-6036a3d4bba9.mp4)
+![](https://user-images.githubusercontent.com/24876548/179864629-a01feb21-14e5-4fca-8a7d-6036a3d4bba9.mp4)
 
