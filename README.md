@@ -1,6 +1,6 @@
 # C++ Implementation of Jos Stam's [Stable Fluid Solver](http://graphics.cs.cmu.edu/nsp/course/15-464/Fall09/papers/StamFluidforGames.pdf)
 
-Jos Stam's seminal 1999 paper in fluid simulation provided a stable (meaning that the flows don't blow up) way to simulate the Navier-Stokes equations of a fluid.
+Jos Stam's seminal paper in fluid simulation provided a stable (meaning that the flows don't blow up) way to simulate the Navier-Stokes equations of a fluid.
 This implementation was written in C++ and rendered using OpenGL.
 
 ## Usage
