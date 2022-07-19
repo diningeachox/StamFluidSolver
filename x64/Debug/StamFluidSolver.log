@@ -1,0 +1,5 @@
+﻿  StamFluidSolver.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+C:\C++ Libraries\glfw-3.3.2.bin.WIN64\include\GLFW\glfw3.h(123): message : see previous definition of 'APIENTRY'
+C:\Users\jackx\Documents\Fluid Simulator\StamFluidSolver\StamFluidSolver\StamFluidSolver.cpp(153,17): warning C4244: 'initializing': conversion from 'clock_t' to 'float', possible loss of data
+  StamFluidSolver.vcxproj -> C:\Users\jackx\Documents\Fluid Simulator\StamFluidSolver\x64\Debug\StamFluidSolver.exe

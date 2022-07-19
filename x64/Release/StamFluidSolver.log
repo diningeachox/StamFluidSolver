@@ -1,0 +1,56 @@
+﻿  density.cpp
+C:\Users\jackx\Documents\Fluid Simulator\StamFluidSolver\StamFluidSolver\density.cpp(77,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jackx\Documents\Fluid Simulator\StamFluidSolver\StamFluidSolver\density.cpp(78,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jackx\Documents\Fluid Simulator\StamFluidSolver\StamFluidSolver\density.cpp(94,20): warning C4244: '=': conversion from 'double' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\jackx\Documents\Fluid Simulator\StamFluidSolver\StamFluidSolver\density.cpp(95,24): warning C4244: '=': conversion from 'double' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\jackx\Documents\Fluid Simulator\StamFluidSolver\StamFluidSolver\density.cpp(96,24): warning C4244: '=': conversion from 'double' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\jackx\Documents\Fluid Simulator\StamFluidSolver\StamFluidSolver\density.cpp(97,28): warning C4244: '=': conversion from 'double' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\jackx\Documents\Fluid Simulator\StamFluidSolver\StamFluidSolver\density.cpp(135,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jackx\Documents\Fluid Simulator\StamFluidSolver\StamFluidSolver\density.cpp(138,29): warning C4244: '=': conversion from 'double' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\jackx\Documents\Fluid Simulator\StamFluidSolver\StamFluidSolver\density.cpp(155,64): warning C4244: '-=': conversion from 'double' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\jackx\Documents\Fluid Simulator\StamFluidSolver\StamFluidSolver\density.cpp(156,64): warning C4244: '-=': conversion from 'double' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\xutility(4817,24): warning C4244: '=': conversion from 'const _Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\jackx\Documents\Fluid Simulator\StamFluidSolver\StamFluidSolver\density.cpp(7): message : see reference to function template instantiation 'void std::fill<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,double>(const _FwdIt,const _FwdIt,const double &)' being compiled
+          with
+          [
+              _Ty=float,
+              _FwdIt=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<float>>>
+          ]
+  Generating code
+  5 of 316 functions ( 1.6%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  StamFluidSolver.vcxproj -> C:\Users\jackx\Documents\Fluid Simulator\StamFluidSolver\x64\Release\StamFluidSolver.exe
