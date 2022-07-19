@@ -16,7 +16,7 @@ This implementation was written in C++ and rendered using OpenGL.
 ## Video
 
 <video width="320" height="240" controls>
-  <source src="[video.mov](https://user-images.githubusercontent.com/24876548/179864629-a01feb21-14e5-4fca-8a7d-6036a3d4bba9.mp4)" type="video/mp4">
+  <source src="https://user-images.githubusercontent.com/24876548/179864629-a01feb21-14e5-4fca-8a7d-6036a3d4bba9.mp4" type="video/mp4">
 </video>
 https://user-images.githubusercontent.com/24876548/179864629-a01feb21-14e5-4fca-8a7d-6036a3d4bba9.mp4
 
