@@ -11,8 +11,9 @@ This implementation was written in C++ and rendered using OpenGL.
 - E: switch to **blue** dye
 
 ## Packages required
-- OpenGL (glew, glfw)
+- OpenGL (glfw and glad)
 
 ## Video
 
 https://user-images.githubusercontent.com/24876548/179864629-a01feb21-14e5-4fca-8a7d-6036a3d4bba9.mp4
+ 

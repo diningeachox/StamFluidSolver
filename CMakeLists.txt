@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
-# set the project name
-project(StamFluidSolver)
+# set the project name and add CUDA
+project(StamFluidSolver LANGUAGES CXX CUDA)
 
 set(INCLUDES_DIR include)
 set(INCLUDES glad glm-master)

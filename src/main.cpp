@@ -6,6 +6,11 @@
 #include <stdexcept>
 #include <ctime>
 
+//CUDA
+#include <cuda.h>
+#include <cuda_runtime.h>
+#include <cuda_runtime_api.h>
+
 #include <math.h>
 #include "shader.h"
 #include "density.h"
