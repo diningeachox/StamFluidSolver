@@ -55,15 +55,20 @@ void Simulation::diffuse(int N, int b, std::vector<float>& x, std::vector<float>
 {
 	int i, j, k;
 	float a = dt * diff * N * N;
-	for (k = 0; k < 20; k++) {
-		for (i = 1; i <= N; i++) {
-			for (j = 1; j <= N; j++) {
-				x[IX(i, j)] = (x0[IX(i, j)] + a * (x[IX(i - 1, j)] + x[IX(i + 1, j)] +
-					x[IX(i, j - 1)] + x[IX(i, j + 1)])) / (1 + 4 * a);
-			}
-		}
-		set_bnd(N, b, x);
-	}
+	//for (k = 0; k < 20; k++) {
+		// for (i = 1; i <= N; i++) {
+		// 	for (j = 1; j <= N; j++) {
+		// 		x[IX(i, j)] = (x0[IX(i, j)] + a * (x[IX(i - 1, j)] + x[IX(i + 1, j)] +
+		// 			x[IX(i, j - 1)] + x[IX(i, j + 1)])) / (1 + 4 * a);
+		// 	}
+		// }
+
+		
+		//set_bnd(N, b, x);
+	//}
+	
+	//Use CUDA kernel 
+	diffuse_parallel(x, x0, diff, dt, b, N);
 }
 
 void Simulation::advect(int N, int b, std::vector<float>& d, std::vector<float>& d0, std::vector<float>& u, std::vector<float>& v, float dt)

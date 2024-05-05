@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.20)
 project(StamFluidSolver)
 
 # add the executable
-add_executable(StamFluidSolver main.cpp density.cpp density.h shader.cpp shader.h kernels.cu)
+add_executable(StamFluidSolver main.cpp density.cpp density.h shader.cpp shader.h kernels.cu kernels.cuh)
 # Add shader files
 target_sources(StamFluidSolver PRIVATE textureshader.vs textureshader.fs)
 # Add glad source file

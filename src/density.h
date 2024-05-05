@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include "kernels.cuh"
 
 //Macro for getting the index of a coordinate stored in 1D array
 #define IX(i,j) ((i)+(N+2)*(j))
