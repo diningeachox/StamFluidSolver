@@ -10,6 +10,7 @@
 #include "shader.h"
 #include "density.h"
 
+
 #define PI 3.14159265
 
 int FPS = 30;
@@ -65,13 +66,13 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 	{
 		//getting cursor position
 		glfwGetCursorPos(window, &xpos, &ypos);
-		std::cout << "Right Cursor Pressed at (" << xpos << " : " << ypos << ")" << std::endl;
+		//std::cout << "Right Cursor Pressed at (" << xpos << " : " << ypos << ")" << std::endl;
 	}
 	else if(button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_RELEASE)
 	{
 		//getting cursor position
 		glfwGetCursorPos(window, &xpos, &ypos);
-		std::cout << "Right Cursor Released at (" << xpos << " : " << ypos << ")" << std::endl;
+		//std::cout << "Right Cursor Released at (" << xpos << " : " << ypos << ")" << std::endl;
 		xpos = -1;
 		ypos = -1;
 
@@ -88,14 +89,14 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 
 		mouse_down[0] = 1;
 
-		std::cout << "Left Cursor Pressed at (" << mx << " : " << my << ")" << std::endl;
+		//std::cout << "Left Cursor Pressed at (" << mx << " : " << my << ")" << std::endl;
 
 	}
 	else if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE)
 	{
 		//getting cursor position
 		glfwGetCursorPos(window, &mx, &my);
-		std::cout << "Left Cursor Released at (" << mx << " : " << my << ")" << std::endl;
+		//std::cout << "Left Cursor Released at (" << mx << " : " << my << ")" << std::endl;
 		//xpos = -1;
 		//ypos = -1;
 		mouse_down[0] = 0;
@@ -109,8 +110,8 @@ int main()
 {
     double lag = 0;
 
-    int size = 720;
-    int scale = 6; //How large to draw each grid
+    int size = 900;
+    int scale = 3; //How large to draw each grid
 
     //Simulation
     Simulation* sim = new Simulation(size / scale);
@@ -155,22 +156,22 @@ int main()
     Shader ourShader("textureshader.vs", "textureshader.fs");
 
     //Generate Texture
-		unsigned int screen_tex;
+	unsigned int screen_tex;
     glGenTextures(1, &screen_tex);
     glBindTexture(GL_TEXTURE_2D, screen_tex);
     // set the texture wrapping/filtering options (on the currently bound texture object)
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
 
-		//Vertices of screen quad
-		static const float vertices[] = {
-				//Position           Texcoords
-				1.0f,  -1.0f, 0.0f,  1.0f, 1.0f,  //Bottom right
-				1.0f,  1.0f,  0.0f,  1.0f, 0.0f,  //Top right
-				-1.0f, -1.0f, 0.0f,  0.0f, 1.0f,  //Bottom Left
-				-1.0f, 1.0f,  0.0f,  0.0f, 0.0f,  //Top left
-		};
+	//Vertices of screen quad
+	static const float vertices[] = {
+			//Position           Texcoords
+			1.0f,  -1.0f, 0.0f,  1.0f, 1.0f,  //Bottom right
+			1.0f,  1.0f,  0.0f,  1.0f, 0.0f,  //Top right
+			-1.0f, -1.0f, 0.0f,  0.0f, 1.0f,  //Bottom Left
+			-1.0f, 1.0f,  0.0f,  0.0f, 0.0f,  //Top left
+	};
     unsigned int indices[] = {
         0, 1, 3, // first triangle
         1, 2, 3  // second triangle
@@ -179,7 +180,7 @@ int main()
     //Create vertex buffer object and vertex array object
     unsigned int VBO, VAO, EBO;
     glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
+    glGenBuffers(1, &VBO); //Vertex buffer
     glGenBuffers(1, &EBO); //Index buffer
     //Bind vertex array object
     glBindVertexArray(VAO);
@@ -198,6 +199,9 @@ int main()
     //Set texture units
     glUniform1i(glGetUniformLocation(ourShader.ID, "tex"), 0); // set it manually
 
+
+    
+
     //Render loop
     while(!glfwWindowShouldClose(window))
     {
@@ -207,67 +211,75 @@ int main()
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-				/* ------------- Update simulation --------------*/
-				sim->reset(size / scale);
-				//std::cout << xpos << std::endl;
-				//Add dye where mouse pressed
-				if (xpos >= 0 && ypos >= 0) {
-						int N = size / scale;
+		/* ------------- Update simulation --------------*/
+		sim->reset(size / scale);
+		//std::cout << xpos << std::endl;
+		//Add dye where mouse pressed
+		if (xpos >= 0 && ypos >= 0) {
+				int N = size / scale;
 
-						int i = (int)((ypos / (float)size) * N + 1);
-						int j = (int)((xpos / (float)size) * N + 1);
-						//Add source
-						sim->stamp(i, j, 1, 1, N, 100.0f * rgb[0], 100.0f * rgb[1], 100.0f * rgb[2]);
-						//Add velocity vectors
-				}
+				int i = (int)((ypos / (float)size) * N + 1);
+				int j = (int)((xpos / (float)size) * N + 1);
+				//Add source
+				sim->stamp(i, j, 1, 1, N, 500.0f * rgb[0], 100.0f * rgb[1], 100.0f * rgb[2]);
+				//Add velocity vectors
+		}
+		//std::cout << mx << "," << omx << std::endl;
+
+		if (mouse_down[0]) {
+				int N = size / scale;
+				if (my >= size) my = size - 1;
+				if (mx >= size) mx = size - 1;
+				if (my < 0) my = 0;
+				if (mx < 0) mx = 0;
+				int i = (int)((my / (float)size) * N + 1);
+				int j = (int)((mx / (float)size) * N + 1);
+				sim->add_force(i, j, N, force * (mx - omx), force * (my - omy));
 				//std::cout << mx << "," << omx << std::endl;
+				omx = mx;
+				omy = my;
+		}
 
-				if (mouse_down[0]) {
-						int N = size / scale;
-						if (my >= size) my = size - 1;
-						if (mx >= size) mx = size - 1;
-						if (my < 0) my = 0;
-						if (mx < 0) mx = 0;
-						int i = (int)((my / (float)size) * N + 1);
-						int j = (int)((mx / (float)size) * N + 1);
-						sim->add_force(i, j, N, force * (mx - omx), force * (my - omy));
-						//std::cout << mx << "," << omx << std::endl;
-						omx = mx;
-						omy = my;
-				}
+		sim->update(size / scale, 0.1f);
 
-				sim->update(size / scale, 0.1f);
+		ourShader.use();
+		data = sim->getDensity(size / scale);
 
-				ourShader.use();
-				data = sim->getDensity(size / scale);
+		
+
+
 
         /* ------------- Render --------------*/
-				//Convert density arrays into a texture for the quad
-			  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, size / scale, size / scale, 0, GL_RGB, GL_FLOAT, data.data());
+		//Convert density arrays into a texture for the quad
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, size / scale, size / scale, 0, GL_RGB, GL_FLOAT, data.data());
 
-				//Position attribute
-		    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
-		    glEnableVertexAttribArray(0);
+		//Position attribute
+	    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+	    glEnableVertexAttribArray(0);
 
-		    //TextureCoord attribute
-		    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
-		    glEnableVertexAttribArray(1);
+	    //TextureCoord attribute
+	    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+	    glEnableVertexAttribArray(1);
 
         glBindVertexArray(VAO);
 
         //Draw quad
-				glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
         //Get events
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
+    
     //Deallocation
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
     glDeleteBuffers(1, &EBO);
 
     glfwTerminate();
+
+    
+
     return 0;
 }
 

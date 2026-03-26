@@ -3,7 +3,7 @@
 #include <vector>
 #include "kernels.cuh"
 
-//Macro for getting the index of a coordinate stored in 1D array
+//Macro for getting the index of a coordinate stored in 1D array in (x, y) order
 #define IX(i,j) ((i)+(N+2)*(j))
 
 class Simulation{
@@ -24,7 +24,7 @@ private:
 	std::vector<float> b_prev;
 
 	float viscosity = 0.0f; //Viscosity of the fluid
-	float diffusion = 0.001f; //Diffusion rate
+	float diffusion = 0.0002f; //Diffusion rate
 
 public:
 	Simulation(int size);

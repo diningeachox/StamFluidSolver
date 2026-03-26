@@ -10,6 +10,7 @@ target_sources(StamFluidSolver PRIVATE textureshader.vs textureshader.fs)
 # Add glad source file
 target_sources(StamFluidSolver PRIVATE glad.c)
 
+
 # Set built properties with CUDA
 set_property(TARGET StamFluidSolver
                        PROPERTY CUDA_SEPARABLE_COMPILATION ON)
