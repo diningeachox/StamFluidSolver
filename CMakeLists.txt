@@ -17,6 +17,10 @@ foreach(INC ${INCLUDES})
     include_directories("${INCLUDES_DIR}/${INC}/include")
 endforeach(INC)
 
+
+
+
+
 # Link libraries in lib
 foreach(LIBRARY ${LIBRARIES})
     add_subdirectory("${LIBRARIES_DIR}/${LIBRARY}")
@@ -26,7 +30,6 @@ endforeach(LIBRARY)
 
 # OpenGL
 find_package(OpenGL REQUIRED)
-#target_link_libraries(StamFluidSolver PUBLIC OpenGL::GL)
 
 # Link threads library
 set(THREADS_PREFER_PTHREAD_FLAG ON)
@@ -35,3 +38,6 @@ find_package(Threads REQUIRED)
 
 # Subdirectories
 add_subdirectory(src)
+
+#Use C++20
+target_compile_features(StamFluidSolver PRIVATE cxx_std_20)
